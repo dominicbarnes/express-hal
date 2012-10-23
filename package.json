@@ -1,0 +1,25 @@
+{
+  "name": "express-hal",
+  "version": "0.0.0",
+  "description": "HAL support for Express",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "express",
+    "hypermedia",
+    "hal"
+  ],
+  "author": "Dominic Barnes <dominic@dbarnes.info>",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "~0.8.2"
+  },
+  "devDependencies": {
+    "should": "~1.2.0"
+  }
+}
