@@ -9,7 +9,11 @@ exports.middleware = function (req, res, next) {
         if (params.embeds) resource.embeds(params.embeds);
         if (params.code)   res.statusCode = params.code;
 
-        res.json(resource);
+        if(req.query.pretty) {
+            res.send(['<pre>', JSON.stringify(resource, null, 4), '</pre>'].join(''));
+        } else {
+            res.json(resource);
+        }
     };
 
     return next();
