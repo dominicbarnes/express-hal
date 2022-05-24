@@ -1,9 +1,14 @@
+require("should");
 var hal = require("..");
+
+before(function() {
+    should.config.checkProtoEql = false;
+});
 
 describe("express-hal", function () {
     describe(".middleware", function () {
         it("should be part of the module exports", function () {
-            hal.should.have.property("middleware").and.be.a("function");
+            hal.should.have.property("middleware").and.be.a.Function();
         });
 
         it("should have the signature of middleware", function () {
@@ -16,7 +21,7 @@ describe("express-hal", function () {
 
                 hal.middleware(req, res, function () {});
 
-                res.should.have.property("hal").and.be.a("function");
+                res.should.have.property("hal").and.be.a.Function();
             });
 
             it("should call res.json() with res.resource", function () {
@@ -47,13 +52,13 @@ describe("express-hal", function () {
 
     describe(".Resource", function () {
         it("should be a constructor function", function () {
-            hal.Resource.should.be.a("function");
+            hal.Resource.should.be.a.Function();
         });
 
         describe("data parameter", function () {
             it("should be optional", function () {
                 var resource = new hal.Resource();
-                resource.should.eql({});
+                resource.should.be.a.Object();
             });
         });
 
@@ -80,12 +85,12 @@ describe("express-hal", function () {
 
             it("should extend the object with anything else", function () {
                 var resource = new hal.Resource({ hello: "world" });
-                resource.should.eql({ hello: "world" });
+                resource.should.be.eql({ hello: "world" });
             });
 
             it("should extend the object itself with anything in the `data` key", function () {
                 var resource = new hal.Resource({ data: { foo: "bar" } });
-                resource.should.eql({ foo: "bar" });
+                resource.should.be.eql({ foo: "bar" });
             });
         });
 
