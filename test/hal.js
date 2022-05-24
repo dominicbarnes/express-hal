@@ -58,7 +58,7 @@ describe("express-hal", function () {
         describe("data parameter", function () {
             it("should be optional", function () {
                 var resource = new hal.Resource();
-                resource.should.be.a.Object();
+                resource.should.be.an.Object();
             });
         });
 
