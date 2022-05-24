@@ -1,6 +1,6 @@
 {
   "name": "express-hal",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "HAL support for Express",
   "main": "index.js",
   "directories": {
